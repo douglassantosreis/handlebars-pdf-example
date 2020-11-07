@@ -18,23 +18,18 @@ public class S3Service {
         String stringObjKeyName = file.getName() + ".pdf";
 
         try {
-            BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAQ475PCEFEGES5TFC", "gQ1wR6IhgraCuGcJuw0iDvLrmsgaPMHwwL5qza3Z");
+            BasicAWSCredentials awsCreds = new BasicAWSCredentials("XXXXXXXXXXXXXX", "XXXXXXXXXXXXXXXX");
 
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                     .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
                     .withRegion(clientRegion)
                     .build();
 
-            // Upload a text string as a new object.
             s3Client.putObject(bucketName, stringObjKeyName, file);
 
         } catch (AmazonServiceException e) {
-            // The call was transmitted successfully, but Amazon S3 couldn't process
-            // it, so it returned an error response.
             e.printStackTrace();
         } catch (SdkClientException e) {
-            // Amazon S3 couldn't be contacted for a response, or the client
-            // couldn't parse the response from Amazon S3.
             e.printStackTrace();
         }
     }
