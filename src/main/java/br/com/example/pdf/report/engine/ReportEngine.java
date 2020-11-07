@@ -47,11 +47,11 @@ public class ReportEngine {
 
             itextMountPdf(doc, output);
 
+            s3Service.uploadPdfToS3(pdf);
+
         } catch (IOException | ParserConfigurationException | SAXException | DocumentException e) {
             e.printStackTrace();
         }
-
-        s3Service.uploadPdfToS3(pdf);
 
         pdf.delete();
     }

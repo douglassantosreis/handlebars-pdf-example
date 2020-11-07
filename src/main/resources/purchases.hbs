@@ -29,6 +29,7 @@
             text-align: center;
         }
 
+        .customer input:readonly { background-color: yellow; }
         .customer { page-break-inside: avoid; padding-bottom: 2em; }
         .customer table { width: 100%; border-collapse: collapse; margin-top: 1em; }
         .customer td { border: solid black thin; padding: 0 2px; }
@@ -37,6 +38,8 @@
         .customer td:nth-child(1) { width: 65%; }
         .customer .total-row { font-weight: bold; }
         .customer .total-row td { border: none; background-color: #fff; }
+        .customer .total-row .brown { border: none; background-color: #7F340B; }
+
     </style>
 </head>
 <body>
@@ -66,7 +69,7 @@
         {{/purchases}}
         <tr class="total-row">
             <td class="total">TOTAL</td>
-            <td>{{purchasesQty this}}</td>
+            <td class="brown">{{purchasesQty this}}</td>
             <td>{{purchasesTotal this}}</td>
             <td></td>
         </tr>
